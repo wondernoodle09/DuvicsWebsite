@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+
+		html {
+	  		scroll-behavior: smooth;
+		}
+
+		body {
+	  		background-color: black;
+	  		width: 100%;
+	  		float: left;
+	  		margin: 0px;
+	  		padding: 0px;		
+	  	}
+
+		ul {
+	  		list-style-type: none;
+		 	margin: 0;
+	  		padding: 0;
+	  		float:right;
+	  		border-bottom: 3px solid #F1ECDB;
+	  		background-color: #313842;
+	  		width: 100vw;
+			height: 7vh;
+			z-index: 10;
+			top: 0px;
+			position: absolute;
+			box-shadow: 20px 20px 20px #E22A0D;
+			overflow: hidden;
+			border-radius: 5px;
+			background-color: #313842;
+			background-image: url(assets/images/dirtybackground.png);
+			background-size: cover;
+			background-position: bottom;
+		}
+
+		li a {
+			display: inline-block;
+			color: #F1ECDB;
+		  	text-align: center;
+		  	padding: 16px 14px;
+		  	float: right;
+			font-family: gibster;
+			text-transform: uppercase;
+			font-size: 24px;
+		}
+
+		h1 {
+			font-family: library;
+			font-size: 72px;
+			transform: scale(1, 1.2);
+		}
+
+		h2 {
+			font-family: gibster;
+			text-transform: uppercase;
+		}
+
+		@font-face {
+			font-family: library;
+			src: url(assets/fonts/Library3am-5V3Z.otf);
+		}
+
+		@font-face {
+			font-family: gibster;
+			src: url(assets/fonts/Gibster-ow1XA.otf);
+		}
+
+		.panel {
+			width: 100%;
+/*			background-image: url("assets/images/cloudybackground.jpg");*/
+			background-repeat: no-repeat;
+  			background-size: cover;
+			position: relative;
+			float: right;
+		}
+
+		.centerVert {
+		  	position: absolute;
+		    top: 50%;
+		  	transform: translateY(-50%);
+  		}
+
+  		.centerAll {
+		  	position: absolute;
+		    top: 50%;
+		    left: 50%;
+		  	transform: translate(-50%, -50%);
+  		}
+
+  		.glow {
+		  font-size: 80px;
+		  color: #F1ECDB;
+		  text-align: center;
+		  animation: glow 1s ease-in-out infinite alternate;
+		}
+
+		@-webkit-keyframes glow {
+		  from {
+		    text-shadow: 0 0 10px #F1ECDB, 0 0 20px #F1ECDB, 0 0 30px #B5D3C2, 0 0 40px #B5D3C2, 0 0 45px #B5D3C2, 0 0 50px #B5D3C2, 0 0 55px #B5D3C2;
+  		}
+  
+  		to {
+    		text-shadow: 0 0 20px #F1ECDB, 0 0 30px #EDF1DB, 0 0 40px #EDF1DB, 0 0 50px #EDF1DB, 0 0 55px #EDF1DB, 0 0 60px #EDF1DB, 0 0 65px #EDF1DB;
+  		}
+		}
+
+		.glowRed {
+		  font-size: 80px;
+		  color: #823636;
+		  text-align: center;
+		  animation: glowRed 1s ease-in-out infinite alternate;
+		}
+
+		@-webkit-keyframes glowRed {
+			from {
+			    text-shadow: 0 0 10px #F4381B, 0 0 20px #F4381B, 0 0 30px #694A5D, 0 0 40px #694A5D, 0 0 45px #694A5D, 0 0 50px #694A5D, 0 0 55px #694A5D;
+	  		}
+
+	  		to {
+	    		text-shadow: 0 0 20px #F4381B, 0 0 30px #B93223, 0 0 40px #B93223, 0 0 50px #B93223, 0 0 55px #B93223, 0 0 60px #B93223, 0 0 65px #B93223;
+	  		}
+		}
+
+		.fadeGlow1 {
+		    animation: fadeGlow1 2s ease-in-out infinite alternate;
+		    animation-delay: .5s;
+		}
+
+		@keyframes fadeGlow1 {
+		    0% {opacity: 0;}
+	/*	    25% {opacity: 0;}*/
+		    50% {opacity: 1;}
+	/*	    75% {opacity: 1;}*/
+		    100% {opacity: 0;}
+		}
+
+		.fadeGlow2 {
+		    animation: fadeGlow2 2s ease-in-out infinite alternate;
+		    animation-delay: .5s;
+		}
+
+		@keyframes fadeGlow2 {
+		    0% {opacity: 1;}
+	/*	    25% {opacity: 1;}*/
+		    50% {opacity: 0;}
+	/*	    75% {opacity: 0;}*/
+		    100% {opacity: 1;}
+		}
+
+		.subpanel {
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		#titleBox {
+			width: 85vw;
+			height: 55vh;
+			border: 3px solid #F1ECDB;
+			background-color: #313842;
+			box-shadow: 30px 30px 30px #E22A0D;
+			border-radius: 5px;
+			overflow: hidden;
+			background-color: #313842;
+			background-image: url(assets/images/dirtybackground.png);
+			background-size: cover;
+			background-position: bottom;
+		}
+
+		#martiniArtDiv {
+			width: 300px;
+			height: 300px;
+/*			background-color: lightblue;*/
+			position: absolute;
+			right: 0px;
+			transform: rotate(330deg);
+			margin-right: -20px;
+		}
+
+		#martiniArt {
+			width: 300px;
+			position: absolute;
+		}
+
+		#martiniArt2 {
+			width: 300px;
+			position: absolute;
+		}
+
+		#duvics {
+			letter-spacing: 10px;
+			color: #F1ECDB;
+			/*text-shadow:
+		    1px 1px 0 #000,
+		    -1px 1px 0 #000,
+		    -1px -1px 0 #000,
+		    1px -1px 0 #000;*/
+		}
+
+		#martiniBar {
+			letter-spacing: -5px;
+			color: #F4381B;
+			margin-left: 112px;
+			/*text-shadow:
+		    1px 1px 0 #000,
+		    -1px 1px 0 #000,
+		    -1px -1px 0 #000,
+		    1px -1px 0 #000;*/
+		}
+
+		#dirtyBackground {
+			position: absolute;
+			width: 1000px;
+		}
+
+
+	</style>
+</head>
+
+
+<body>
+	<ul>
+
+		<li>
+			<a>Contact</a>
+		</li>
+
+		<li>
+			<a>About</a>
+		</li>
+
+		<li>
+			<a>Food</a>
+		</li>
+
+		<li>
+			<a>Drink</a>
+		</li>
+
+	</ul>
+
+	<div class="panel" style="height: 93vh; margin-top: 7vh;">
+
+		<div id="titleBox" class="centerAll">
+
+			<div class="subpanel" style="width: 60%;">
+				<div class="centerVert" style="margin-left: -50px;">
+					<h1 id="duvics" class="glow">Duvic's</h1>
+					<h1 id="martiniBar" class="glowRed">Martini Bar</h1>
+				</div>
+
+				<div id="martiniArtDiv">
+					<img class="fadeGlow1" id="martiniArt" src="assets/images/martiniGlowUp.png">
+					<img class="fadeGlow2" id="martiniArt2" src="assets/images/martiniGlowDown.png">
+				</div>
+			</div>
+
+			<div class="subpanel" style="background-color: #313842; position: absolute; right: 0px; top: 0px; width: 55vh;">
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="panel" style="height: 100vh; background-color: #313842;">
+	</div>
+
+<script>
+</script>
+
+
+</body>
+</html>
